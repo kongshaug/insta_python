@@ -9,3 +9,8 @@ from neural_network import neural_network
 # dog_bot.get_images(900)
 # tree_bot.get_images(900)
 
+
+network = neural_network(["cat", "dog", "tree"])
+network.make_model()
+network.train_network()
+# network.test_network()
