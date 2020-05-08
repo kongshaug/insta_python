@@ -68,13 +68,14 @@ class neural_network:
                       )
 
         self.model = model
+        print(model.summary())
 
     def train_network(self):
         self.model.fit(self.X_train,
                        self.y_train,
-                       epochs=10,
+                       epochs=5,
                        verbose=True,
-                       batch_size=64,
+                       batch_size=20,
                        validation_split=0.1)  # checking periodically how well we are doing
 
     def test_network(self):
