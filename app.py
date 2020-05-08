@@ -10,13 +10,18 @@ from neural_network import neural_network
 # pizza_bot.get_images(1500)
 
 network = neural_network(["cat", "car", "pizza"])
-network.make_model()
-network.train_network()
-# network.test_network()
+#network.make_model()
+#network.train_network()
+#network.test_network()
 
-network.pickle_network()
+#network.pickle_network()
 network.get_pickled_network()
 
 network.predict(
-    "https://www.ecosia.org/images?q=bil#id=D33193781FF18D45B9AC73F4EC054E43E37310F7"
+    "https://img.chewy.com/is/image/catalog/120918_MAIN._AC_SL1500_V1496427995_.jpg"
 )
+network.predict(
+    "https://caterville.files.wordpress.com/2013/10/fe0c8-pizza-cat.jpg"
+)
+
+

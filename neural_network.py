@@ -16,13 +16,12 @@ class neural_network:
         self.images = []
         self.targets = []
         self.target_translator = {}
-
-        self.get_images_from_csv()
+        for idx, hashtag in enumerate(self.hashtags):
+            self.target_translator[idx] = hashtag
 
     def get_images_from_csv(self):
 
         for idx, hashtag in enumerate(self.hashtags):
-            self.target_translator[hashtag] = idx
             images_from_csv = csv_connection.read_from_CSV(hashtag)
             for image in images_from_csv:
                 self.images.append(image)
@@ -49,6 +48,9 @@ class neural_network:
             len(self.X_train), len(self.X_test)))
 
     def make_model(self):
+
+        self.get_images_from_csv()
+
         model = models.Sequential()
         model.add(layers.Conv2D(
             32, (3, 3), activation='relu', input_shape=(96, 96, 3)))
@@ -75,9 +77,9 @@ class neural_network:
     def train_network(self):
         self.model.fit(self.X_train,
                        self.y_train,
-                       epochs=10,
+                       epochs=5,
                        verbose=True,
-                       batch_size=64,
+                       batch_size=32,
                        validation_split=0.1)  # checking periodically how well we are doing
 
     def test_network(self):
@@ -88,8 +90,18 @@ class neural_network:
         image = io.imread(image_link)
         array_image = resize(image, (96, 96, 3))
         image_list = np.array([array_image])
-        predicted = self.model.predict(image_list)
-        print(predicted)
+        
+        
+        tags = ""
+        for hashtag in self.hashtags:
+            tags += ("{} ".format(hashtag))
+        
+        print("\nOkay, let me check if thats an image of a: {}".format(tags))
+
+        predicted = self.model.predict_classes(image_list)
+
+        print("\nThat sure looks like a {}".format(self.target_translator[predicted[0]]))
+        
     
     def pickle_network(self):
         pickle_out = open("network.pickle", "wb")
