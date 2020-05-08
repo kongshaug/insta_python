@@ -51,7 +51,7 @@ class neural_network:
     def make_model(self):
         model = models.Sequential()
         model.add(layers.Conv2D(
-            32, (3, 3), activation='relu', input_shape=(96, 96, 1)))
+            32, (3, 3), activation='relu', input_shape=(96, 96, 3)))
         # Max Pooling to reduce the spatial dimensions of the output volume. pool_size: integer or tuple of 2 integers, factors by which to downscale (vertical, horizontal)
         model.add(layers.MaxPool2D((2, 2)))
         # does not need input_shape, since it gets it from previous layer
