@@ -28,10 +28,8 @@ class instagram_bot:
         ].click()
         print("changed to danish")
         time.sleep(3)
-        self.driver.find_elements_by_class_name(
-            "_2hvTZ")[0].send_keys(self.username)
-        self.driver.find_elements_by_class_name(
-            "_2hvTZ")[1].send_keys(self.password)
+        self.driver.find_elements_by_class_name("_2hvTZ")[0].send_keys(self.username)
+        self.driver.find_elements_by_class_name("_2hvTZ")[1].send_keys(self.password)
         print("put credentials")
         time.sleep(2)
         self.driver.find_element_by_class_name("L3NKy").click()
@@ -49,8 +47,7 @@ class instagram_bot:
         print("mission.complete")
 
     def search(self):
-        self.driver.get(
-            "https://www.instagram.com/explore/tags/" + self.hashtag)
+        self.driver.get("https://www.instagram.com/explore/tags/" + self.hashtag)
 
     def get_images(self, image_len=100):
         self.login()
@@ -91,9 +88,10 @@ class instagram_bot:
 
             array_image = io.imread(image)
             array_image = resize(array_image, (96, 96, 3))
-            #gray = rgb2gray(array_image)
-            conv_images.append(array_image)
+            gray = rgb2gray(array_image)
+            conv_images.append(gray)
             time.sleep(0.5)
             print("image nr {} converted".format(len(conv_images)))
 
         return conv_images
+
