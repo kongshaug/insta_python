@@ -88,8 +88,13 @@ class instagram_bot:
 
             array_image = io.imread(image)
             array_image = resize(array_image, (96, 96, 3))
+<<<<<<< HEAD
             gray = rgb2gray(array_image)
             conv_images.append(gray)
+=======
+            # gray = rgb2gray(array_image)
+            conv_images.append(array_image)
+>>>>>>> b53ee27f9f15e38bc21116388809f31a96ad38e8
             time.sleep(0.5)
             print("image nr {} converted".format(len(conv_images)))
 
