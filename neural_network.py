@@ -5,6 +5,9 @@ from keras.utils import to_categorical
 from sklearn.model_selection import train_test_split
 from keras import models
 from keras import layers
+import pickle
+from skimage import io
+from skimage.transform import resize
 
 
 class neural_network:
@@ -81,3 +84,22 @@ class neural_network:
     def test_network(self):
         results = self.model.evaluate(self.X_test, self.y_test)
         print('test loss, test acc:', results)
+    
+    def predict(self, image_link):
+        image = io.imread(image_link)
+        array_image = resize(image, (96, 96, 3))
+        image_list = np.array([array_image])
+        predicted = self.model.predict(image_list)
+        print(predicted)
+    
+    def pickle_network(self):
+        pickle_out = open("network.pickle", "wb")
+        pickle.dump(self.model, pickle_out)
+        pickle_out.close()
+    
+    def get_pickled_network(self):
+        pickle_in = open("network.pickle", "rb")
+        self.model = pickle.load(pickle_in)
+
+
+
