@@ -2,7 +2,7 @@
 
 #### Gruppemedlemmer: Sofie Amalie Landt, Amanda Juhl Hansen & Benjamin Kongshaug
 
-### Problemstillingen
+### Problemstilling
 
 Med dette projekt ønsker vi at kunne hente billeder ud fra Instagram med en Bot, på baggrund af et hashtag, og på baggrund af disse billeder, kunne træne et neuralt netværk til at kunne skelne mellem billeder med forskellige hashtags.
 
