@@ -52,32 +52,31 @@ Vores neurale netværk er baseret på de 3 hashtags "cat", "car", "pizza" og vi 
 Programmet skal som minimum bruge 2 hashtags til det neurale netværk, der er intet max af hashtags.
 Vær opmærksom på at de 3 nedenstående kommandoer tager 30-40 minutter tilsammen at eksekvere. 
 
-###### - python insta_cli.py -ha cat 1500
-    - (kommandoen henter 1500 billeder med hashtag cat fra instagram og gemmer dem i en csv fil)
-    
-- python insta_cli.py -ha car 1500        (kommandoen henter 1500 billeder med hashtag car fra instagram og gemmer dem i en csv fil)
-- python insta_cli.py -ha pizza 1500      (kommandoen henter 1500 billeder med hashtag pizza fra instagram og gemmer dem i en csv fil)
+###### Kommandoen henter 1500 billeder med hashtag cat fra instagram og gemmer dem i en csv fil
+    python insta_cli.py -ha cat 1500
 
+###### Kommandoen henter 1500 billeder med hashtag car fra instagram og gemmer dem i en csv fil
+    python insta_cli.py -ha car 1500  
+
+###### Kommandoen henter 1500 billeder med hashtag pizza fra instagram og gemmer dem i en csv fil
+    python insta_cli.py -ha pizza 1500     
+    
 Nu er alle billeder downloadet og klar til det neurale netværk.
 
-- python insta_cli.py -has cat car pizza (kommandoen bygger, træner og pickler det neurale netværk)
-
-- python insta_cli.py -t                 (kommandoen tester det neurale netværk og giver en accuracy på data som ikke er set før)
+###### Kommandoen bygger, træner og pickler det neurale netværk
+    python insta_cli.py -has cat car pizza 
+    
+###### Kommandoen tester det neurale netværk og giver en accuracy på data som ikke er set før
+    python insta_cli.py -t                 
 
 Nu det tid til at bruge netværket 
 
-- python insta_cli.py -l <LINK_TO_IMAGE> (kommandoen henter og konventere billede og netværket gætter på hvilket hashtag billede passer bedst til)
+###### Kommandoen henter og konventere billede og netværket gætter på hvilket hashtag billede passer bedst til
+    python insta_cli.py -l <LINK_TO_IMAGE> 
 
 Nedenfor er der eksempler på billeder man kan prøve at bruge men man er også velkommen til selv at finde billeder at prøve med.
 
-https://previews.123rf.com/images/katerinamore/katerinamore1808/katerinamore180801119/107239902-children-s-funny-pizza-in-the-form-of-a-cat-s-face-italian-cuisine-children-s-menu.jpg
-
-https://www.thesun.co.uk/wp-content/uploads/2018/11/cat-2.png
-
-https://i.pinimg.com/736x/9c/65/72/9c6572022945ed5c9578f044189fac9a.jpg
-
-https://i.pinimg.com/originals/4d/3b/c4/4d3bc4b4b87b309a24aa05ee5ec4863f.jpg
-
-
-
-
+- https://previews.123rf.com/images/katerinamore/katerinamore1808/katerinamore180801119/107239902-children-s-funny-pizza-in-the-form-of-a-cat-s-face-italian-cuisine-children-s-menu.jpg
+- https://www.thesun.co.uk/wp-content/uploads/2018/11/cat-2.png
+- https://i.pinimg.com/736x/9c/65/72/9c6572022945ed5c9578f044189fac9a.jpg
+- https://i.pinimg.com/originals/4d/3b/c4/4d3bc4b4b87b309a24aa05ee5ec4863f.jpg
