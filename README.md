@@ -52,7 +52,9 @@ Vores neurale netværk er baseret på de 3 hashtags "cat", "car", "pizza" og vi 
 Programmet skal som minimum bruge 2 hashtags til det neurale netværk, der er intet max af hashtags.
 Vær opmærksom på at de 3 nedenstående kommandoer tager 30-40 minutter tilsammen at eksekvere. 
 
-- python insta_cli.py -ha cat 1500        (kommandoen henter 1500 billeder med hashtag cat fra instagram og gemmer dem i en csv fil)
+- python insta_cli.py -ha cat 1500
+    - (kommandoen henter 1500 billeder med hashtag cat fra instagram og gemmer dem i en csv fil)
+    
 - python insta_cli.py -ha car 1500        (kommandoen henter 1500 billeder med hashtag car fra instagram og gemmer dem i en csv fil)
 - python insta_cli.py -ha pizza 1500      (kommandoen henter 1500 billeder med hashtag pizza fra instagram og gemmer dem i en csv fil)
 
