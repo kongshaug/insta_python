@@ -3,9 +3,7 @@ import time
 from skimage import io
 from skimage.color import rgb2gray
 from skimage.transform import resize
-import matplotlib.pyplot as plt
 from selenium.webdriver.common.action_chains import ActionChains
-from sqlalchemy import create_engine
 import csv_connection
 
 
