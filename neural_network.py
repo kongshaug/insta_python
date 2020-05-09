@@ -20,17 +20,18 @@ class neural_network:
             self.target_translator[idx] = hashtag
 
     def get_images_from_csv(self):
-        print("Making the neural network, please wait")
+        print("Fetching the images from CSV files, please wait")
         for idx, hashtag in enumerate(self.hashtags):
             images_from_csv = csv_connection.read_from_CSV(hashtag)
             for image in images_from_csv:
                 self.images.append(image)
                 self.targets.append(idx)
 
-        print("images from csv files are received")
+        print("Images from CSV files are loaded")
         self.prepare_data()
 
     def prepare_data(self):
+        print("Preparing the data, please wait")
         self.images = np.array(self.images)
         self.targets = np.array(self.targets)
 
@@ -51,10 +52,9 @@ class neural_network:
             )
         )
 
-    def make_model(self):
-
+    def make_model(self): 
         self.get_images_from_csv()
-
+        print("Making the neural network, please wait")
         model = models.Sequential()
         model.add(layers.Conv2D(32, (3, 3), activation="relu", input_shape=(96, 96, 3)))
         # Max Pooling to reduce the spatial dimensions of the output volume. pool_size: integer or tuple of 2 integers, factors by which to downscale (vertical, horizontal)
@@ -79,6 +79,7 @@ class neural_network:
         self.model = model
 
     def train_network(self):
+        print("Training the neural network")
         self.model.fit(
             self.X_train,
             self.y_train,
@@ -110,7 +111,7 @@ class neural_network:
         )
 
     def pickle_network(self):
-        pickle_out = open("network.picked", "wb")
+        pickle_out = open("network.pickle", "wb")
         pickle.dump(self, pickle_out)
         pickle_out.close()
 
