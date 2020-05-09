@@ -50,6 +50,7 @@ def get_data_from_instagram(hashtag, number_of_images):
 
 
 def make_neural_network(hashtags):
+    print("Please wait ...")
     network = neural_network(hashtags)
     network.make_model()
     network.train_network()
