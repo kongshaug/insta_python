@@ -3,7 +3,7 @@ import pickle
 from insta_bot import instagram_bot
 from neural_network import neural_network
 
-parser = argparse.ArgumentParser(description="")
+parser = argparse.ArgumentParser(description="This program fetchs images, makes a neural network and is then able to predict images")
 
 parser.add_argument(
     "-ha",
@@ -50,6 +50,7 @@ def get_data_from_instagram(hashtag, number_of_images):
 
 
 def make_neural_network(hashtags):
+    print("Please wait ...")
     network = neural_network(hashtags)
     network.make_model()
     network.train_network()

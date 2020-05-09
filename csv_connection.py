@@ -30,13 +30,8 @@ def read_from_CSV(hashtag):
 
     # convert dataframe to numpy array
     images = df.to_numpy()
-
+    
     # reshape intp 96 x 93 x number of images / len of dataframe
     images = images.reshape(len(images), 96, 96, 3)
-
-    # just ment to have a look - can be deleted
-    # print(images)
-    #plt.imshow(images[1], cmap='gray')
-    # plt.show()
 
     return images

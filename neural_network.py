@@ -47,7 +47,7 @@ class neural_network:
         )
 
         print(
-            "66% of the data {} and 33% of the data {}".format(
+            "The training set is 66% of the data, equal to {} images, and the validation set is 33% of the data, equal to {} images".format(
                 len(self.X_train), len(self.X_test)
             )
         )
@@ -109,6 +109,9 @@ class neural_network:
         print(
             "\nThat sure looks like a {}".format(self.target_translator[predicted[0]])
         )
+        plt.imshow(image_list[0])
+        plt.show()
+        
 
     def pickle_network(self):
         pickle_out = open("network.pickle", "wb")
