@@ -24,6 +24,7 @@ parser.add_argument(
 parser.add_argument(
     "-has",
     "--hashtags",
+    nargs="*",
     type=str,
     required=False,
     help="Enter hashtags for the categories in the neural network",

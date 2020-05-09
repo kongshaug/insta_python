@@ -20,7 +20,7 @@ class neural_network:
             self.target_translator[idx] = hashtag
 
     def get_images_from_csv(self):
-
+        print("Making the neural network, please wait")
         for idx, hashtag in enumerate(self.hashtags):
             images_from_csv = csv_connection.read_from_CSV(hashtag)
             for image in images_from_csv:
