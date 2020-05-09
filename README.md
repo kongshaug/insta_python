@@ -52,26 +52,26 @@ Vores neurale netværk er baseret på de 3 hashtags "cat", "car", "pizza" og vi 
 Programmet skal som minimum bruge 2 hashtags til det neurale netværk, der er intet max af hashtags.
 Vær opmærksom på at de 3 nedenstående kommandoer tager 30-40 minutter tilsammen at eksekvere. 
 
-###### Kommandoen henter 1500 billeder med hashtag cat fra instagram og gemmer dem i en csv fil
+###### Nedenstående kommando henter 1500 billeder med hashtag cat fra instagram og gemmer dem i en csv fil
     python insta_cli.py -ha cat 1500
 
-###### Kommandoen henter 1500 billeder med hashtag car fra instagram og gemmer dem i en csv fil
+###### Nedenstående kommando henter 1500 billeder med hashtag car fra instagram og gemmer dem i en csv fil
     python insta_cli.py -ha car 1500  
 
-###### Kommandoen henter 1500 billeder med hashtag pizza fra instagram og gemmer dem i en csv fil
+###### Nedenstående kommando henter 1500 billeder med hashtag pizza fra instagram og gemmer dem i en csv fil
     python insta_cli.py -ha pizza 1500     
     
 Nu er alle billeder downloadet og klar til det neurale netværk.
 
-###### Kommandoen bygger, træner og pickler det neurale netværk
+###### Nedenstående kommando bygger, træner og pickler det neurale netværk
     python insta_cli.py -has cat car pizza 
     
-###### Kommandoen tester det neurale netværk og giver en accuracy på data som ikke er set før
+###### Nedenstående kommando tester det neurale netværk og giver en accuracy på data som ikke er set før
     python insta_cli.py -t                 
 
 Nu det tid til at bruge netværket 
 
-###### Kommandoen henter og konventere billede og netværket gætter på hvilket hashtag billede passer bedst til
+###### Nedenstående kommando henter og konventere billede og netværket gætter på hvilket hashtag billede passer bedst til
     python insta_cli.py -l <LINK_TO_IMAGE> 
 
 Nedenfor er der eksempler på billeder man kan prøve at bruge men man er også velkommen til selv at finde billeder at prøve med.
