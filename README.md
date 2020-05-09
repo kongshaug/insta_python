@@ -41,7 +41,7 @@ Til vores CLI service har vi brugt:
 
 - Clone projektet fra gitHub
 - Kopier config.example.py til en fil med navnet config.py
-- Udfyld user i config.py med login oplysninger fra afleveringsfilen.
+- Udfyld user i config.py med login oplysninger fra afleveringsfilen, eller brug dit eget instragram login
 - Lav en mappe kaldet "images" i roden af projektet
 
 Vores neurale netværk er baseret på de 3 hashtags "cat", "car", "pizza" og vi anbefaler at bruge de samme.
