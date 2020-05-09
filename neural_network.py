@@ -109,6 +109,9 @@ class neural_network:
         print(
             "\nThat sure looks like a {}".format(self.target_translator[predicted[0]])
         )
+        plt.imshow(image_list[0])
+        plt.show()
+        
 
     def pickle_network(self):
         pickle_out = open("network.pickle", "wb")
