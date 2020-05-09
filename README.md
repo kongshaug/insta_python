@@ -1,26 +1,6 @@
-# insta_python
+# Python eksamens projekt
 
-Gruppemedlemmer: Sofie Amalie Landt, Amanda Juhl Hansen & Benjamin Kongshaug
-
-Python eksamens projekt
-
-
-Valg af teknologier (biblioteker)
-Til dette projekt forventer vi at bruge:
-
-Selenium
-Pandas
-Keras
-Time
-Regular Expressions
-tqdm
-Tensorflow
-Mathplotlib.pyplot
-pymysql og sqlalchemy
-
-
-
-
+#### Gruppemedlemmer: Sofie Amalie Landt, Amanda Juhl Hansen & Benjamin Kongshaug
 
 ### Problemstillingen
 
@@ -34,47 +14,40 @@ Kildekoden opdaterer hele tiden de billeder der vises på Instagram, og til dett
 
 Det vil altså sige at vi primært fokusere på at udvinde data og sekundært at anvende dette. Målet med vores projekt er at opnå et neuralt netværk, der er trænet så godt, at det vil kunne kende forskel på, om et givet billede skal have enten det ene eller det andet hashtag.
 
-## Teknologier
+### Teknologier
 
 Til at hente og konventere billeder fra instagram har vi brugt:
-
-selenium (ChromeDriver)
-skimage
+- selenium (ChromeDriver)
+- skimage
 
 Til at gemme og hente billeder fra CSV filer har vi brugt:
-
-pandas
-numpy
-csv
+- pandas
+- numpy
+- csv
 
 Til det neural network har vi brugt:
-
-matplotlib.pyplot
-numpy
-keras (TensorFlow)
-SkLearn
-Pickle 
-skImage
+- matplotlib.pyplot
+- numpy
+- keras (TensorFlow)
+- sklearn
+- pickle 
+- skImage
 
 Til vores CLI service har vi brugt:
+- argparse
+- pickle
 
-Argparse
-Pickle
+### Hvordan køres projektet
 
-
-
-
-Hvordan køres projektet
-
-- clone projektet fra gitHub
-- kopier config.example.py til en fil med navnet config.py
-- udfyld user i config.py med login oplysninger fra afleveringsfilen.
-- lav en mappe kaldet "images" i roden af projektet
+- Clone projektet fra gitHub
+- Kopier config.example.py til en fil med navnet config.py
+- Udfyld user i config.py med login oplysninger fra afleveringsfilen.
+- Lav en mappe kaldet "images" i roden af projektet
 
 Vores neurale netværk er baseret på de 3 hashtags "cat", "car", "pizza" og vi anbefaler at bruge de samme.
 
-- åben en command prompt og naviger til roden af projektet.
-- med python insta_cli.py --help kan du se alle komandoer, nedenfor kan du se den rækkefølge vi anbefaler at gøre det i.
+- Åben en command prompt og naviger til roden af projektet.
+- Med python insta_cli.py --help kan du se alle komandoer, nedenfor kan du se den rækkefølge vi anbefaler at gøre det i.
 
 Programmet skal som minimum bruge 2 hashtags til det neurale netværk, der er intet max af hashtags.
 Vær opmærksom på at de 3 nedenstående kommandoer tager 30-40 minutter tilsammen at eksekvere. 
