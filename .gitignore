@@ -2,7 +2,6 @@ config.py
 geckodriver.log
 __pycache__
 debug.log
-chromedriver.exe
 /images/**
 *.csv
 network.pickle
