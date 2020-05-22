@@ -3,15 +3,8 @@ import pickle
 from insta_bot import instagram_bot
 from neural_network import neural_network
 
-parser = argparse.ArgumentParser(description="This program fetchs images, makes a neural network and is then able to predict images")
-
-parser.add_argument(
-    "-ha",
-    "--hashtag",
-    type=str,
-    required=False,
-    help="Enter hashtag for Instagram search",
-)
+parser = argparse.ArgumentParser(
+    description="This program fetchs images, makes a neural network and is then able to predict images")
 
 parser.add_argument(
     "-n",
@@ -22,7 +15,7 @@ parser.add_argument(
 )
 
 parser.add_argument(
-    "-has",
+    "-ha",
     "--hashtags",
     nargs="*",
     type=str,
@@ -43,10 +36,12 @@ parser.add_argument(
 )
 
 
-def get_data_from_instagram(hashtag, number_of_images):
-    bot = instagram_bot(hashtag)
-    bot.get_images(number_of_images)
-    print("The image has been downloaded to the file {}.csv in /images".format(hashtag))
+def get_data_from_instagram(hashtags, number_of_images):
+    for hashtag in hashtags:
+        bot = instagram_bot(hashtag)
+        bot.get_images(number_of_images)
+        print(
+            "The images has been downloaded to the file {}.csv in /images".format(hashtag))
 
 
 def make_neural_network(hashtags):
@@ -73,8 +68,8 @@ def predict(link):
 
 
 arguments = parser.parse_args()
-if arguments.hashtag != None and arguments.number_of_images != None:
-    get_data_from_instagram(arguments.hashtag, arguments.number_of_images)
+if arguments.hashtags != None and arguments.number_of_images != None:
+    get_data_from_instagram(arguments.hashtags, arguments.number_of_images)
 elif arguments.hashtags != None and len(arguments.hashtags) > 1:
     make_neural_network(arguments.hashtags)
 elif arguments.link != None:

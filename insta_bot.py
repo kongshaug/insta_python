@@ -26,8 +26,10 @@ class instagram_bot:
         ].click()
         print("changed to danish")
         time.sleep(3)
-        self.driver.find_elements_by_class_name("_2hvTZ")[0].send_keys(self.username)
-        self.driver.find_elements_by_class_name("_2hvTZ")[1].send_keys(self.password)
+        self.driver.find_elements_by_class_name(
+            "_2hvTZ")[0].send_keys(self.username)
+        self.driver.find_elements_by_class_name(
+            "_2hvTZ")[1].send_keys(self.password)
         print("put credentials")
         time.sleep(2)
         self.driver.find_element_by_class_name("L3NKy").click()
@@ -45,7 +47,8 @@ class instagram_bot:
         print("mission.complete")
 
     def search(self):
-        self.driver.get("https://www.instagram.com/explore/tags/" + self.hashtag)
+        self.driver.get(
+            "https://www.instagram.com/explore/tags/" + self.hashtag)
 
     def get_images(self, image_len=100):
         self.login()
@@ -56,13 +59,16 @@ class instagram_bot:
         while len(images) < image_len:
 
             for post in self.driver.find_elements_by_class_name("KL4Bh"):
-                all_images = post.find_element_by_tag_name("img").get_attribute(
-                    "srcset"
-                )
+                try:
+                    all_images = post.find_element_by_tag_name("img").get_attribute(
+                        "srcset"
+                    )
 
-                img_with_width = all_images.split(",")[2]
-                img = img_with_width.split(" ")[0]
-                images.append(img)
+                    img_with_width = all_images.split(",")[2]
+                    img = img_with_width.split(" ")[0]
+                    images.append(img)
+                except:
+                    print("Missed an image")
 
             print("Number of images ready to download: {} ".format(len(images)))
             self.scroll()
@@ -78,20 +84,20 @@ class instagram_bot:
             # you can change right side number for scroll convenience or destination
             self.driver.execute_script("window.scrollBy(0, 1400)")
             # you can change time integer to float or remove
-            time.sleep(4)
+            time.sleep(2)
 
     def convert_images(self, images):
         conv_images = []
         for image in images:
-
-            array_image = io.imread(image)
-            array_image = resize(array_image, (96, 96, 3))
-
-            # gray = rgb2gray(array_image)
-            conv_images.append(array_image)
-
-            time.sleep(0.5)
-            print("image nr {} converted".format(len(conv_images)))
+            try:
+                array_image = io.imread(image)
+                array_image = resize(array_image, (96, 96, 3))
+                # gray = rgb2gray(array_image)
+                conv_images.append(array_image)
+                time.sleep(0.3)
+                print("image nr {} converted".format(len(conv_images)))
+            except:
+                print("Conversion of image nr {} gone wrong".format(
+                    len(conv_images)+1))
 
         return conv_images
-
