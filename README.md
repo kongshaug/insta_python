@@ -39,42 +39,38 @@ Til vores CLI service har vi brugt:
 
 ### Hvordan køres projektet
 
-- Clone projektet fra gitHub
-- Kopier config.example.py til en fil med navnet config.py
+- Download projektet fra gitHub og åbn
+- Åbn projektet
+- Kopier config.example.py og lav en ny fil med navnet config.py
 - Udfyld user i config.py med login oplysninger fra afleveringsfilen, eller brug dit eget instragram login
-- Lav en mappe kaldet "images" i roden af projektet
+- Lav en mappe med navnet "images" i roden af projektet
+- Enten download din egen chromedriver og tilføj den til roden af mappen, eller anvend den chromedriver der kommer med projektet (der skal evt. gives tilladelse til at bruge den). 
 
 Vores neurale netværk er baseret på de 3 hashtags "cat", "car", "pizza" og vi anbefaler at bruge de samme.
 
 - Åben en command prompt og naviger til roden af projektet.
-- Med python insta_cli.py --help kan du se alle komandoer, nedenfor kan du se den rækkefølge vi anbefaler at gøre det i.
+- Med python insta_cli.py --help kan du se alle komandoer og nedenfor kan du se den rækkefølge vi anbefaler at gøre det i.
 
 Programmet skal som minimum bruge 2 hashtags til det neurale netværk, der er intet max af hashtags.
-Vær opmærksom på at de 3 nedenstående kommandoer tager 30-40 minutter tilsammen at eksekvere. 
+Vær opmærksom på at den nedenstående kommando, godt kan tage 40 minutter at eksekvere. 
 
-###### Nedenstående kommando henter 1500 billeder med hashtag cat fra instagram og gemmer dem i en csv fil
-    python insta_cli.py -ha cat 1500
+###### Nedenstående kommando henter 1500 billeder af hver hashtag (cat, car, pizza) fra instagram og gemmer dem i tre seperate csv filer
+    python insta_cli.py -ha cat car pizza -n 1500
 
-###### Nedenstående kommando henter 1500 billeder med hashtag car fra instagram og gemmer dem i en csv fil
-    python insta_cli.py -ha car 1500  
-
-###### Nedenstående kommando henter 1500 billeder med hashtag pizza fra instagram og gemmer dem i en csv fil
-    python insta_cli.py -ha pizza 1500     
-    
 Nu er alle billeder downloadet og klar til det neurale netværk.
 
 ###### Nedenstående kommando bygger, træner og pickler det neurale netværk
-    python insta_cli.py -has cat car pizza 
+    python insta_cli.py -ha cat car pizza 
     
 ###### Nedenstående kommando tester det neurale netværk og giver en accuracy på data som ikke er set før
     python insta_cli.py -t                 
 
 Nu det tid til at bruge netværket 
 
-###### Nedenstående kommando henter og konventere billede og netværket gætter på hvilket hashtag billede passer bedst til
+###### Nedenstående kommando henter og konventere billede og netværket gætter på hvilket hashtag billedet passer bedst til
     python insta_cli.py -l <LINK_TO_IMAGE> 
 
-Nedenfor er der eksempler på billeder man kan prøve at bruge men man er også velkommen til selv at finde billeder at prøve med.
+Nedenfor er der eksempler på billeder man kan prøve at bruge, men man er også velkommen til selv at finde billeder at prøve med.
 
 - https://previews.123rf.com/images/katerinamore/katerinamore1808/katerinamore180801119/107239902-children-s-funny-pizza-in-the-form-of-a-cat-s-face-italian-cuisine-children-s-menu.jpg
 - https://www.thesun.co.uk/wp-content/uploads/2018/11/cat-2.png
